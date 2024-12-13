@@ -9,3 +9,5 @@ These steps were performed for sample after running the calculate_depth.sh scrip
   TOTAL_READS=$(awk '{sum += $3} END {print sum}' 3A_stats.txt)
   samtools depth -r chr9:4490518-4490548 3A.recal.cram | \  
   awk -v total_reads=$TOTAL_READS '{print $1, $2, $3 / total_reads * 1000000}' > 3A_normalized_depth.txt
+
+After this, a boxplot and a Wilcoxon Signed Rank test were used to assess the data.
