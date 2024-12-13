@@ -3,7 +3,7 @@ Here are the scripts used in the ongoing SLC1A1 study
 
 Please note: the data was normalized by calculating the total mapped reads for each sample, dividing raw counts by this value, and scaling to reads per million (RPM).
 
-These steps were performed for sample after running the calculate_depth.sh script, and included following:
+These steps were performed per each sample after running the calculate_depth.sh script, and included following:
 
   samtools idxstats 3A.recal.cram > 3A_stats.txt           
   TOTAL_READS=$(awk '{sum += $3} END {print sum}' 3A_stats.txt)
