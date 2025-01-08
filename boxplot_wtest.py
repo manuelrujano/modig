@@ -61,10 +61,10 @@ for label, depth in depth_values.items():
         continue  # Skip if label doesn't match expected patterns
     data.append({"Patient": label, "Group": group, "Depth": depth})
 
-# Create the DataFrame
+# Create the df
 df = pd.DataFrame(data)
 
-# Export the DataFrame to an Excel file
+# Export the df
 output_path = "/Users/xrujma/bin/tools/scripts/output_normalized.xlsx"  # Replace with your desired file path
 df.to_excel(output_path, index=False, sheet_name="Depth Data")
 
@@ -72,10 +72,8 @@ df.to_excel(output_path, index=False, sheet_name="Depth Data")
 plt.figure(figsize=(8, 6))
 sns.set(style="whitegrid")
 
-# Create the boxplot
+# boxplot
 boxplot = sns.boxplot(x="Group", y="Depth", data=df, palette="pastel")
-
-# Overlay the swarmplot for individual data points (optional)
 sns.swarmplot(x="Group", y="Depth", data=df, color="red", size=10, dodge=True, ax=boxplot)
 
 # Perform the Wilcoxon signed-rank test for paired data
@@ -84,7 +82,7 @@ control = df[df['Group'] == 'Control']['Depth'].values
 stat, p_value = wilcoxon(endo, control)
 
 # Get the y-position for the line (a bit above the max depth value)
-ymax = df['Depth'].max() * 1.05  # Set the y-limit for the line and p-value annotation
+ymax = df['Depth'].max() * 1.05 
 
 # Draw a line between the two groups to indicate comparison
 plt.plot([0, 1], [ymax, ymax], color='black', lw=2)
@@ -93,12 +91,12 @@ plt.plot([0, 1], [ymax, ymax], color='black', lw=2)
 boxplot.text(0.5, ymax + 0.02, f'P-value = {p_value:.4f}', ha='center', va='bottom', fontsize=14, color="black")
 
 
-# Adding labels and title
+# labels and title
 boxplot.set_title("Total depth distribution in region chr9:4490518-4490548", fontsize=18)
 boxplot.set_xlabel("Nine patients with endometriosis", fontsize=16)
 boxplot.set_ylabel("Normalized read depth", fontsize=16)
 
-# Increase font size of x-axis group labels
+# font size of x-axis group labels
 plt.xticks(fontsize=16)
 
 # Show the plot
