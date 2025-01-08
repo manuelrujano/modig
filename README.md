@@ -3,7 +3,7 @@ Here are the scripts used in the ongoing SLC1A1 study
 
 Please note: the data was normalized by calculating the total mapped reads for each sample, dividing raw counts by this value, and scaling to reads per million (RPM).
 
-These steps were included the following:
+These steps were the following:
 
   samtools idxstats 3A.recal.cram > 3A_stats.txt           
   
