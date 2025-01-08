@@ -1,4 +1,10 @@
+
+
 # modig
+
+
+![image](https://github.com/user-attachments/assets/db1c5215-395a-4dc4-9362-ec818cd3b336)
+
 Here are the scripts used in the ongoing SLC1A1 study
 
 Please note: the data was normalized by calculating the total mapped reads for each sample, dividing raw counts by this value, and scaling to reads per million (RPM).
